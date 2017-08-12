@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>upload</title>
+    <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <link href="//cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.min.css" rel="stylesheet">
+
+    <style>
+        * {margin: 0; padding: 0;}
+        table
+        {
+            border-collapse:collapse;  /*表格单元格间距样式*/
+             border-spacing: 0;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        #dn{cursor: pointer;text-decoration:none;}
+    </style>
+</head>
+
+<script>
+
+    /* $(document).ready(function(){
+       {
+        var rs = "upload/sdf";
+
+        rs = rs.substr(7);
+        alert(rs);
+
+        }
+
+    });*/
+
+
+</script>
+
+<body>
+    <h1>register</h1>
+    <div id="blank1" style="padding-top: 30px;width: 60%; margin:0 auto;" class="table-responsive">
+        <table width="100%" class="table table-hover">
+            <tr class="success">
+                <td>名称</td>
+                <td> </td>
+                <td>大小</td>
+                <td>下载</td>
+
+            </tr>
+
+            {% for name in names %}          <!-- edit here！！！-->
+            <tr class="dnld" onmouseover="displaydnld({{forloop.counter}})" onmouseout="hidednld({{forloop.counter}})">
+                <td>
+                    <!--    {% load static %}-->
+                    <img class="" style="padding-top: 5px;padding-bottom: 5px; width:30px; height:50px" src="{% static "picture/jpg.png" %}" alt=""/>
+                </td>
+                <td>descriptiondescriptiondescriptio</td>
+                <td>2k </td>
+               <td><a  id="dn{{forloop.counter}}" style="display:none;" href="">下载</a></td>
+
+            </tr>
+            {% endfor %}
+
+
+        <input type="hidden" name="" value="{{forloop.counter}}">
+        </table>
+
+
+         <form method="post" enctype="multipart/form-data" >
+            {{uf.as_p}}
+        <input type="submit" class="btn btn-success" value="ok"/>
+        </form>
+    </div>
+
+    <div>
+
+    </div>
+</body>
+
+<script>
+
+     $(document).ready(function(){
+        $("#blank1").css("width", $(window).width()*0.6);
+
+    });
+
+    function  displaydnld(ix){
+
+        document.getElementById("dn"+ix).style.display = "block";
+    }
+
+    function  hidednld(ix){
+        document.getElementById('dn'+ix).style.display = "none";
+    }
+
+</script>
+
+
+
+</html>

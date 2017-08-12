@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Foundation 实例</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/foundation/5.5.3/js/foundation.min.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/foundation/5.5.3/js/vendor/modernizr.js"></script>
+
+    <style>
+        * {margin: 0; padding: 0;}
+        table
+        {
+
+             border-spacing: 0;
+border-radius:20px;
+            -moz-border-radius: 20px;
+            -webkit-border-radius: 20px;
+            border:1px solid #0f0;
+
+         /*   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+        }
+
+        tr{border:1px solid #000;}
+        /*tr:hover{background-color: #f5f5f5}*/
+        td{border:0px;}
+
+    </style>
+</head>
+<body style="padding-top: 30px;width: 60%; margin:0 auto;">
+
+
+        <table width="100%" >
+            <tr>
+                <td>名称</td>
+                <td> </td>
+                <td>大小</td>
+                <td>下载</td>
+
+            </tr>
+
+
+            <tr class="dnld" onmouseover="displaydnld({{forloop.counter}})" onmouseout="hidednld({{forloop.counter}})">
+                <td>
+                    <!--    {% load static %}-->
+                    <img class="" style="padding-top: 5px;padding-bottom: 5px; width:30px; height:50px" src="{% static "picture/jpg.png" %}" alt=""/>
+                </td>
+                <td>descriptiondescriptiondescriptio</td>
+                <td>2k </td>
+               <td><a  id="dn{{forloop.counter}}" style="display:none;" href="">下载</a></td>
+
+            </tr>
+
+        </table>
+
+
+</body>
+</html>
